@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: PixelFont, Arial, Helvetica, sans-serif;
+}
+
+@font-face{
+    font-family: PixelFont;
+    src: url("PixelatedEleganceRegular-ovyAA.ttf");
+}
+.textbox{
+    visibility: hidden;
+    position: absolute;
+    bottom: 0px;
+    height: 30%;
+    background-color: rgb(185, 185, 185);
+    border: 4px solid black;
+    right: 0px;
+    width: 50%;
+    padding: 20px;
+    font-size: 1.2em;
+    line-height: 2em;
+    
+}

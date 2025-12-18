@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mockupation</title>
+    <style>
+        body{
+            background-image: url('images/background-stars.png');
+        }
+        .planet{
+            width:200px;
+            height:200px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        #jungle{
+            left: 20%;
+            top: 30%;
+        }
+        #desert{
+            bottom: 10%;
+            right: 50%;
+        }
+        #ice{
+            top: 10%;
+            right: 20%;
+        }
+        #lava{
+            right: 30%;
+            top: 50%;
+        }
+        #menu{
+            background-color: black;
+            position: absolute;
+            right: 0;
+            opacity: 0.9; 
+            top: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            opacity: 1;
+            position: absolute;
+        }
+        #open{
+            visibility: visible;
+        }
+        .menu-main{
+            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+        .menu-main a{
+            width: 200px;
+            background-color: rgb(55, 55, 55);
+            border: 4px solid gray;
+            text-align: center;
+            height: 50px;
+            font-size: 20px;
+            opacity: 1;
+            text-decoration: none;
+            color: white;
+        }
+        #sun-container{
+            display: flex;
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            top: 40%;
+            right: 46%;
+            box-shadow: 0px 0px 30px white;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="sun-container"><img src="images/star-white-dwarf.png" alt="The Sun" id="sun" class="planet" onclick="sunTextbox()"></div>
+    <img id="lava" class="planet" src="images/Hephestus.png" alt="Lava Planet" title="Hephestus" onclick=" document.getElementById('lava-desc').style.visibility='visible'">
+    <img id="ice" class="planet" src="images/Frostbite.png" alt="Ice Planet" title="Frostbite">
+    <img id="jungle" class="planet" src="images/Legoshia.png" alt="Jungle Planet" title="Legoshia">
+    <img id="desert" class="planet" src="images/Duneterra.png" alt="Desert Planet" title="Duneterra">
+    <button type="button" id="open" class="button" onclick="document.getElementById('menu').style.visibility = 'visible'; 
+    document.getElementById('open').style.visibility = 'hidden'"> MENU</button>
+    <div id="menu"> 
+        <button type="button" class="button" onclick="document.getElementById('menu').style.visibility = 'hidden'; 
+        document.getElementById('open').style.visibility = 'visible'"> CLOSE</button>
+        <div class="menu-main">
+            <h1>SCORING</h1>
+            <p>Hephestus: <!--Insert Score once we get to that--></p>
+            <p>Frostbite: <!--Insert Score once we get to that--></p>
+            <p>Legoshia: <!--Insert Score once we get to that--></p>
+            <p>Duneterra: <!--Insert Score once we get to that--></p>
+            <button><a href="title.html">BACK TO TITLE</a></button>
+        </div>
+    </div>
+    <div id="lava-desc"></div>
+    <div class="textbox" id="sun-textbox" onclick="getElementById('sun-textbox').style.visibility='hidden'"></div>
+    <script src="main.js"></script>
+</body>
+</html>
