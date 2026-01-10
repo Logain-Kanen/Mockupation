@@ -4,9 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mockupation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-image: url('images/background-stars.png');
+            align-content: center;
+            justify-content: center;
+            display: flex;
+            height: 100vh;
+        }
+        
+        #container{
+            height: 100%;
+            width: 79%;
+            position: relative;
+        }
+        .bg{
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+        #minigame-container{
+            z-index: 1;
+            height: 100%;
+            visibility: hidden;
+        }
+        .textbox{
+            font-size: 16px;
+        }
+    </style>
 </head>
-<body>
-    <img src="/images/pixil-frame-0.png" alt="Frostbite">
+<body> 
+    <div id="container">
+        <img class="bg" src="images/frostbite-background.png" alt="bg">
+        <div class="textbox" id="text1" onclick="document.getElementById('text1').style.visibility= 'hidden'; document.getElementById('text2').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Okay so this planet is...</div>
+        <div class="textbox" id="text2" onclick="document.getElementById('text2').style.visibility= 'hidden'; document.getElementById('text3').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT (Over Radio): Frostbite, temperatures here average below -400&deg; fahrenheit, Any liquid here freezes in a matter of seconds so it makes sense that no one wants to live here.</div>
+        <div class="textbox" id="text3" onclick="document.getElementById('text3').style.visibility= 'hidden'; document.getElementById('text4').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Yup and we're here to fix that! The owner of this planet has asked us to make it habitable so he can attract more tourists and potential citizens.</div>
+        <div class="textbox" id="text4" onclick="document.getElementById('text4').style.visibility= 'hidden'; document.getElementById('text5').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">Alrighty then, you should be getting the files for a costruction worker right about now, first the owner of this planet wants us to build a house to see how it holds up in this weather.</div>
+        <div class="textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('minigame-container').style.visibility= 'visible'">TUTORIAL: Click on the part of the house with a low opacity to build it, the minigame is finished once all parts are built</div>
 
+        <!-- Minigame -->
+        <div id="minigame-container">
+            <img src="images/frostbite-minigame.png" alt="frostbite-minigame-background" id="minigame-bg" class="bg">
+            <div id="house-body" class="house"><img src="images/house.png" alt="house-body"></div>
+            <div id="house-door" class="house"><img src="images/house.png" alt="house-door"></div>
+            <div id="house-roofs" class="house"><img src="images/house.png" alt="house-roofs"></div>
+            <div id="house-windows" class="house"><img src="images/house.png" alt="house-windows"></div>
+        </div>
+
+        <!--After-Minigame Lesson-->
+        <div class="lesson-textbox" id="lesson">
+            <p></p> 
+            <ul></ul>
+            <a class="return" href="index.html">RETURN TO MAP</a>
+        </div>
+
+    </div>
+    <script>
+        onload=document.getElementById('text1').style.visibility= 'visible'
+        
+        document.getElementById("house-body").addEventListener("click", houseFun1);
+        document.getElementById("house-door").addEventListener("click", houseFun2);
+        document.getElementById("house-roofs").addEventListener("click", houseFun3);
+        document.getElementById("house-windows").addEventListener("click", houseFun4);
+
+        function houseFunc1(){
+            count1--
+            if(count1== 0){
+                document.getElementById("count-content1").textContent="DONE"
+                document.getElementById("house1").removeEventListener('click', houseFunc1)
+
+            }
+            else{
+                document.getElementById("count-content1").textContent=" " +count1
+            }
+        }
+        function houseFunc2(){
+            count2--
+            if(count2== 0){
+                document.getElementById("count-content2").textContent="DONE"
+                document.getElementById("house2").removeEventListener('click', houseFunc2)
+
+            }
+            else{
+                document.getElementById("count-content2").textContent=count2
+            }
+        }
+        function houseFunc3(){
+            count3--
+            if(count3== 0){
+                document.getElementById("count-content3").textContent="DONE"
+                document.getElementById("house3").removeEventListener('click', houseFunc3)
+
+            }
+            else{
+                document.getElementById("count-content3").textContent=count3
+            }
+        }
+        function houseFunc4(){
+            count4--
+            if(count4== 0){
+                document.getElementById("count-content4").textContent="DONE"
+                document.getElementById("house4").removeEventListener('click', houseFunc4)
+
+            }
+            else{
+                document.getElementById("count-content4").textContent=count4
+            }
+        }
+
+        if(count1==0&&count2==0&&count3==0&&count4==0){
+            document.getElementById("lesson").style.visibility = "visible"
+        }
+    </script>
 </body>
 </html>
