@@ -21,5 +21,37 @@
     padding: 20px;
     font-size: 1.2em;
     line-height: 2em;
-    
+}
+.lesson-textbox{
+    visibility: hidden;
+    position: absolute;
+    height: 100%;
+    font-size: 1.7em;
+    background-color: rgb(185, 185, 185);
+    border: 4px solid black;
+    padding: 20px;
+    line-height: 2em;
+    z-index: 5;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    align-items: center;
+}
+.return{
+    width: 600px;
+    background-color: rgb(163, 163, 163);
+    border: 4px solid white;
+    text-align: center;
+    height: 50px;
+    font-size: 20px;
+}
+.textbox img{
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
