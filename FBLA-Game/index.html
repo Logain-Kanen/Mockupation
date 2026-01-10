@@ -6,52 +6,193 @@
     <link rel="stylesheet" href="style.css">
     <title>Mockupation</title>
     <style>
-        body{
+        body {
+            margin: 0;
+            height: 100vh;
             background-image: url('images/background-stars.png');
+            background-size: cover;
+            cursor: none;
+            overflow: hidden;
         }
-        .planet{
-            width:200px;
-            height:200px;
+        /* Spaceship */
+        #spaceship {
+            position: absolute;
+            width: 80px;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Orbital paths */
+        .orbit {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        #orbit1 {
+            width: 500px;
+            height: 500px;
+        }
+
+        #orbit2 {
+            width: 800px;
+            height: 800px;
+        }
+
+        #orbit3 {
+            width: 350px;
+            height: 350px;
+        }
+
+        #orbit4 {
+            width: 650px;
+            height: 650px;
+        }
+
+        .planet {
             border-radius: 50%;
             position: absolute;
         }
-        #jungle{
-            left: 20%;
-            top: 30%;
+
+        a img {
+            width: 150px;
         }
-        #desert{
-            bottom: 10%;
-            right: 50%;
+
+        /* Individual planet sizes */
+        #ice img {
+            width: 120px;
         }
-        #ice{
-            top: 10%;
-            right: 20%;
+
+        #jungle img {
+            width: 160px;
         }
-        #lava{
-            right: 30%;
+
+        #lava img {
+            width: 160px;
+        }
+
+        #desert img {
+            width: 200px;
+        }
+
+        #sun {
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
             top: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            z-index: 10;
         }
-        #menu{
+
+        /* Keyframes for orbital animations */
+        @keyframes orbit1 {
+            from {
+                transform: rotate(0deg) translateX(250px) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translateX(250px) rotate(-360deg);
+            }
+        }
+
+        @keyframes orbit2 {
+            from {
+                transform: rotate(90deg) translateX(400px) rotate(-90deg);
+            }
+            to {
+                transform: rotate(450deg) translateX(400px) rotate(-450deg);
+            }
+        }
+
+        @keyframes orbit3 {
+            from {
+                transform: rotate(180deg) translateX(170px) rotate(-180deg);
+            }
+            to {
+                transform: rotate(540deg) translateX(170px) rotate(-540deg);
+            }
+        }
+
+        @keyframes orbit4 {
+            from {
+                transform: rotate(270deg) translateX(320px) rotate(-270deg);
+            }
+            to {
+                transform: rotate(630deg) translateX(320px) rotate(-630deg);
+            }
+        }
+
+        /* Orbital animations for each planet */
+        #jungle {
+            animation: orbit4 30s linear infinite;
+            transform-origin: center;
+            left: 50%;
+            top: 50%;
+            margin-left: -90px;
+            margin-top: -90px;
+        }
+
+        #desert {
+            animation: orbit1 20s linear infinite;
+            transform-origin: center;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+        }
+
+        #ice {
+            animation: orbit2 50s linear infinite;
+            transform-origin: center;
+            left: 50%;
+            top: 50%;
+            margin-left: -60px;
+            margin-top: -60px;
+        }
+
+        #lava {
+            animation: orbit3 10s linear infinite;
+            transform-origin: center;
+            left: 50%;
+            top: 50%;
+            margin-left: -80px;
+            margin-top: -80px;
+        }
+
+        #menu {
             background-color: black;
             position: absolute;
             right: 0;
-            opacity: 0.9; 
+            opacity: 0.9;
             top: 0;
             width: 100%;
             height: 100%;
             visibility: hidden;
+            z-index: 1000;
         }
-        .button{
+
+        .button {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             opacity: 1;
             position: absolute;
+            z-index: 1001;
+            cursor: pointer;
         }
-        #open{
+
+        #open {
             visibility: visible;
+            top: 10px;
+            left: 10px;
         }
-        .menu-main{
+
+        .menu-main {
             font-size: 24px;
             display: flex;
             flex-direction: column;
@@ -61,7 +202,8 @@
             height: 100%;
             width: 100%;
         }
-        .menu-main a{
+
+        .menu-main a {
             width: 200px;
             background-color: rgb(55, 55, 55);
             border: 4px solid gray;
@@ -71,44 +213,102 @@
             opacity: 1;
             text-decoration: none;
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-main button {
+            cursor: pointer;
         }
         #sun-container{
-            display: flex;
-            position: absolute;
-            width: 180px;
-            height: 180px;
             border-radius: 50%;
-            top: 40%;
-            right: 46%;
-            box-shadow: 0px 0px 30px white;
-            justify-content: center;
-            align-items: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 130px;
+            height: 130px;
+            z-index: 10;
+            box-shadow: 0px 0px 40px white;
         }
     </style>
 </head>
-<body>
+<body onmousemove="moveShip(event)">
+    <!-- Spaceship -->
+    <img id="spaceship" src="images/ship.png" alt="Spaceship">
+
+    <!-- Orbital paths -->
+    <div id="orbit3" class="orbit"></div>
+    <div id="orbit4" class="orbit"></div>
+    <div id="orbit1" class="orbit"></div>
+    <div id="orbit2" class="orbit"></div>
+
+    <!-- Sun -->
+    <div id="sun-container"><img src="images/White-Diamond.png" alt="The Sun" id="sun" class="planet" onclick="sunTextbox()"></div>
     
-    <div id="sun-container"><img src="images/star-white-dwarf.png" alt="The Sun" id="sun" class="planet" onclick="sunTextbox()"></div>
-    <img id="lava" class="planet" src="images/Hephestus.png" alt="Lava Planet" title="Hephestus" onclick=" document.getElementById('lava-desc').style.visibility='visible'">
-    <img id="ice" class="planet" src="images/Frostbite.png" alt="Ice Planet" title="Frostbite">
-    <img id="jungle" class="planet" src="images/Legoshia.png" alt="Jungle Planet" title="Legoshia">
-    <img id="desert" class="planet" src="images/Duneterra.png" alt="Desert Planet" title="Duneterra">
-    <button type="button" id="open" class="button" onclick="document.getElementById('menu').style.visibility = 'visible'; 
-    document.getElementById('open').style.visibility = 'hidden'"> MENU</button>
-    <div id="menu"> 
-        <button type="button" class="button" onclick="document.getElementById('menu').style.visibility = 'hidden'; 
-        document.getElementById('open').style.visibility = 'visible'"> CLOSE</button>
+    <!-- Planets -->
+    <a href="lava.html" id="lava" class="planet">
+        <img src="images/Hephestus.png" alt="Lava Planet" title="Hephestus">
+    </a>
+    
+    <a href="ice.html" id="ice" class="planet">
+        <img src="images/Frostbite.png" alt="Ice Planet" title="Frostbite">
+    </a>
+    
+    <a href="jungle.html" id="jungle" class="planet">
+        <img src="images/Legoshia.png" alt="Jungle Planet" title="Legoshia">
+    </a>
+    
+    <a href="desert.html" id="desert" class="planet">
+        <img src="images/Duneterra.png" alt="Desert Planet" title="Duneterra">
+    </a>
+    
+    <!-- Menu button -->
+    <button type="button" id="open" class="button" onclick="openMenu()">
+        MENU
+    </button>
+    
+    <!-- Menu overlay -->
+    <div id="menu">
+        <button type="button" class="button" onclick="document.getElementById('menu').style.visibility = 'hidden'; document.getElementById('open').style.visibility = 'visible'">
+            CLOSE
+        </button>
         <div class="menu-main">
-            <h1>SCORING</h1>
-            <p>Hephestus: <!--Insert Score once we get to that--></p>
-            <p>Frostbite: <!--Insert Score once we get to that--></p>
-            <p>Legoshia: <!--Insert Score once we get to that--></p>
-            <p>Duneterra: <!--Insert Score once we get to that--></p>
+            <h1>COMPLETION TRACKER</h1>
+            <p id="hephestus-completion">Hephestus: Incomplete</p>
+            <p id="frostbite-completion">Frostbite: Incomplete</p>
+            <p id="legoshia-completion">Legoshia: Incomplete</p>
+            <p id="duneterra-completion">Duneterra: Incomplete</p>
             <button><a href="title.html">BACK TO TITLE</a></button>
         </div>
     </div>
-    <div id="lava-desc"></div>
+    
     <div class="textbox" id="sun-textbox" onclick="getElementById('sun-textbox').style.visibility='hidden'"></div>
-    <script src="main.js"></script>
+    
+
+     <script src="main.js"></script>
+    <script>
+        // Spaceship follower script
+        const ship = document.getElementById('spaceship');
+        let shipX = window.innerWidth / 2;
+        let shipY = window.innerHeight / 2;
+
+        function moveShip(e) {
+            const dx = e.clientX - shipX;
+            const dy = e.clientY - shipY;
+            const angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+            
+            shipX += dx * 0.3;  // 0.1 = speed (lower = slower)
+            shipY += dy * 0.3;
+            
+            ship.style.left = shipX + 'px';
+            ship.style.top = shipY + 'px';
+            ship.style.transform = 'translate(-50%, -50%) rotate(' + angle + 'deg)';
+        }
+
+        setInterval(moveShip, 16);
+    </script>
+   
 </body>
 </html>
