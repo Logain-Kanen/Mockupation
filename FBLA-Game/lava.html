@@ -4,8 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mockupation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-image: url('images/background-stars.png');
+            align-content: center;
+            justify-content: center;
+            display: flex;
+            height: 100vh;
+        }
+        
+        #container{
+            height: 100%;
+            width: 79%;
+            position: relative;
+        }
+        .bg{
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+        #minigame-container{
+            z-index: 1;
+            height: 100%;
+            visibility: hidden;
+        }
+        .textbox{
+            font-size: 16px;
+        }
+        .valve{
+            width: 170px;
+            height: 170px;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+        }
+        .valve img{
+            width: 200px;
+        }
+        .valve div{
+            background-color: red;
+            width: 60px;
+            text-align: center;
+        }
+        #valve1{
+            right: 250px;
+            top: 155px;
+        }
+        #valve2{
+            left: 94px;
+            top: 155px;
+        }
+        #valve3{
+            bottom: 130px;
+            left: 94px;
+        }
+        #valve4{
+            bottom: 130px;
+            right: 250px;
+        }
+    </style>
 </head>
-<body>
-    
+<body> 
+    <div id="container">
+        <img class="bg" src="images/Hephestus-bg.png" alt="bg">
+        <div class="textbox" id="text1" onclick="document.getElementById('text1').style.visibility= 'hidden'; document.getElementById('text2').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Okay so this planet is...</div>
+        <div class="textbox" id="text2" onclick="document.getElementById('text2').style.visibility= 'hidden'; document.getElementById('text3').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT (Over Radio): Hephestus, temperatures here average around 3000&deg; Kelvin, thankfully the metals that are able to solidify here are extremely heat resistant, the same ones present in most metals that WE use</div>
+        <div class="textbox" id="text3" onclick="document.getElementById('text3').style.visibility= 'hidden'; document.getElementById('text4').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Good thing you're not down there, you're tie might catch fire Bobert!</div>
+        <div class="textbox" id="text4" onclick="document.getElementById('text4').style.visibility= 'hidden'; document.getElementById('text5').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">Alrighty then, you should be getting the files for a plumber right about now, there's a malfunctioning factory that needs work, the steam release is not, well, releasing, so check on the valves.</div>
+        <div class="textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('minigame-container').style.visibility= 'visible'">TUTORIAL: Click on each valve until the text above it says DONE, get all valves set to DONE in order to finish the minigame</div>
+
+        <!-- Minigame -->
+        <div id="minigame-container">
+            <img src="images/hephestus-minigame.png" alt="Pipes" id="minigame-bg" class="bg">
+            <div id="valve1" class="valve"><div id="count-content1"></div><img src="images/Valve.png" alt="Valve"></div>
+            <div id="valve2" class="valve"><div id="count-content2"></div><img src="images/Valve.png" alt="Valve"></div>
+            <div id="valve3" class="valve"><div id="count-content3"></div><img src="images/Valve.png" alt="Valve"></div>
+            <div id="valve4" class="valve"><div id="count-content4"></div><img src="images/Valve.png" alt="Valve"></div>
+        </div>
+
+        <!--After-Minigame Lesson-->
+        <div class="lesson-textbox" id="lesson">
+            <p>Plumbers, Steamfitters, and Pipefitters are jobs that often fall under the umbrella of plumbing. They deal with pipes, drains, heating, and cooling equipment, as well as the tools needed for these jobs. Turning valves, while certainly part of the job, is an oversimplification of everything required for a career centered around plumbing. Monitering key systems of not only pipes but also all the machines and technology connected to them is a critical part of having a job in plumbing.</p>
+            <ul></ul>
+            <button class="return" onclick="hephTracker()">RETURN TO MAP</button>
+        </div>
+
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
