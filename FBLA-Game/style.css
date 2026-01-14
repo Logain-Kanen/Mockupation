@@ -35,8 +35,10 @@
     top: 0px;
     display: flex;
     flex-direction: column;
-    gap: 200px;
+    gap: 100px;
     align-items: center;
+    overflow: auto;
+    padding: 60px;
 }
 .return{
     width: 600px;

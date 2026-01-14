@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockupation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-image: url('images/background-stars.png');
+            align-content: center;
+            justify-content: center;
+            display: flex;
+            height: 100vh;
+        }
+        
+        #container{
+            height: 100%;
+            width: 79%;
+            position: relative;
+        }
+        .bg{
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+        #minigame-container{
+            z-index: 1;
+            height: 100%;
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .textbox{
+            font-size: 16px;
+        }
+        .plant-sample{
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            border: 3px solid white;
+            background-color: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #sample-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 500px;
+        }
+        #sample-count{
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .quiz-option {
+            display: block;
+            margin: 8px 0;
+            padding: 12px 15px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body> 
+    <div id="container">
+        <img class="bg" src="images/legoshia-background.png" alt="bg">
+        <div class="textbox" id="text1" onclick="document.getElementById('text1').style.visibility= 'hidden'; document.getElementById('text2').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Okay so this planet is...</div>
+        <div class="textbox" id="text2" onclick="document.getElementById('text2').style.visibility= 'hidden'; document.getElementById('text3').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT (Over Radio): Legoshia, this planet is covered in dense jungles and has perfect conditions for plant growth. The biodiversity here is absolutely incredible!</div>
+        <div class="textbox" id="text3" onclick="document.getElementById('text3').style.visibility= 'hidden'; document.getElementById('text4').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): That's right! The local research facility needs help cataloging new plant species they've discovered.</div>
+        <div class="textbox" id="text4" onclick="document.getElementById('text4').style.visibility= 'hidden'; document.getElementById('text5').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">You'll be working as an agricultural scientist today. Your job is to collect plant samples from different areas of the jungle for analysis.</div>
+        <div class="textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('minigame-container').style.visibility= 'visible'">TUTORIAL: Click on each plant sample to collect it. Collect all 12 samples to complete your research mission!</div>
+
+        <!-- Minigame -->
+        <div id="minigame-container">
+            <div id="sample-count">Samples Collected: 0/6</div>
+            <div id="sample-container">
+                <img src="images/flower-1.png" alt="alien-flower" class="plant-sample" onclick="collectSample(this)">
+                <img src="images/flower-2.png" alt="alien-flower" class="plant-sample" onclick="collectSample(this)">
+                <img src="images/flower-3.png" alt="alien-flower" class="plant-sample" onclick="collectSample(this)">
+                <img src="images/flower-4.png" alt="alien-flower" class="plant-sample" onclick="collectSample(this)">
+                <img src="images/flower-5.png" alt="alien-flower" class="plant-sample" onclick="collectSample(this)">
+                <img src="images/flower-6.png" alt="alien-flower" class="plant-sample" onclick="collectSample(this)">
+            </div>
+        </div>
+
+        <!--After-Minigame Lesson-->
+        <div class="lesson-textbox" id="llesson">
+            <h2>🌾 Career Spotlight: Agricultural Scientist</h2>
+            
+            <p>Agricultural scientists, also known as agronomists or food scientists, play a crucial role in developing sustainable farming practices, improving crop yields, and ensuring food security for growing populations. Their work goes far beyond simply collecting samples – they conduct complex research that shapes the future of agriculture.</p>
+            
+            <h3>What Do Agricultural Scientists Do?</h3>
+            <ul>
+                <li><strong>Conduct Research:</strong> Design and perform experiments on crops and livestock to improve productivity and sustainability</li>
+                <li><strong>Analyze Samples:</strong> Study soil, plant, and water samples using laboratory equipment and scientific methods</li>
+                <li><strong>Develop Solutions:</strong> Create pest management strategies and disease prevention techniques</li>
+                <li><strong>Use Technology:</strong> Operate drones, GPS systems, and data analysis software to monitor crop health</li>
+                <li><strong>Improve Genetics:</strong> Work on crop breeding programs to develop more resilient plant varieties</li>
+            </ul>
+            
+            <h3>Career Opportunities</h3>
+            <ul>
+                <li><strong>Plant Breeding:</strong> Develop new crop varieties with improved traits</li>
+                <li><strong>Soil Science:</strong> Study soil composition and health for better farming</li>
+                <li><strong>Food Science:</strong> Research food safety, nutrition, and processing methods</li>
+                <li><strong>Sustainable Agriculture:</strong> Create environmentally friendly farming practices</li>
+                <li><strong>Biotechnology:</strong> Use genetic engineering to solve agricultural challenges</li>
+            </ul>
+            
+            <h3>Education & Skills Needed</h3>
+            <ul>
+                <li><strong>Bachelor's Degree:</strong> Minimum requirement in agriculture, biology, or related fields</li>
+                <li><strong>Advanced Degrees:</strong> Master's or PhD for research and specialized positions</li>
+                <li><strong>Key Subjects:</strong> Chemistry, biology, genetics, statistics, and agricultural science</li>
+                <li><strong>Skills:</strong> Problem-solving, attention to detail, data analysis, and communication</li>
+            </ul>
+            
+            <h3>Work Environment</h3>
+            <ul>
+                <li><strong>Laboratory Work:</strong> Conduct experiments and analyze samples indoors</li>
+                <li><strong>Fieldwork:</strong> Visit farms and research stations for hands-on research</li>
+                <li><strong>Office Work:</strong> Analyze data, write reports, and collaborate with teams</li>
+                <li><strong>Variety:</strong> Mix of indoor and outdoor work in diverse settings</li>
+            </ul>
+            
+            <h3>Salary & Career Outlook</h3>
+            <ul>
+                <li><strong>Median Salary:</strong> $70,000-$75,000 per year</li>
+                <li><strong>Senior Positions:</strong> Over $100,000 for experienced researchers</li>
+                <li><strong>Job Growth:</strong> Increasing demand due to climate change and population growth</li>
+                <li><strong>Global Impact:</strong> Work on solutions to worldwide food security challenges</li>
+            </ul>
+            
+            <!-- Quiz Section -->
+            <div id="quiz-section">
+                <h3>✏️ Check Your Understanding</h3>
+                <p style="margin-bottom: 20px; font-style: italic;">Test what you've learned about agricultural scientists!</p>
+                
+                <div class="quiz-question">
+                    <h4>Question 1: What is the primary role of agricultural scientists?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="a" onclick="checkLAnswer(1, 'a')">
+                        A) Only collect plant samples from fields
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="b" onclick="checkLAnswer(1, 'b')">
+                        B) Develop sustainable farming practices and improve crop yields
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="c" onclick="checkLAnswer(1, 'c')">
+                        C) Sell farming equipment to farmers
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 2: What technology do agricultural scientists use?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="a" onclick="checkLAnswer(2, 'a')">
+                        A) Only traditional farming tools
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="b" onclick="checkLAnswer(2, 'b')">
+                        B) Drones, GPS systems, and data analysis software
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="c" onclick="checkLAnswer(2, 'c')">
+                        C) Only microscopes
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 3: What is the typical education requirement for this career?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="a" onclick="checkLAnswer(3, 'a')">
+                        A) High school diploma only
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="b" onclick="checkLAnswer(3, 'b')">
+                        B) At least a bachelor's degree in agriculture or related fields
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="c" onclick="checkLAnswer(3, 'c')">
+                        C) No formal education needed
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 4: Where do agricultural scientists work?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="a" onclick="checkLAnswer(4, 'a')">
+                        A) Only in laboratories
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="b" onclick="checkLAnswer(4, 'b')">
+                        B) Only on farms
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="c" onclick="checkLAnswer(4, 'c')">
+                        C) In laboratories, fields, and offices
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 5: Why is this career field growing?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="a" onclick="checkLAnswer(5, 'a')">
+                        A) Climate change and population growth create need for agricultural innovation
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="b" onclick="checkLAnswer(5, 'b')">
+                        B) Because plants are becoming extinct
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="c" onclick="checkLAnswer(5, 'c')">
+                        C) It's not growing at all
+                    </label>
+                </div>
+                
+                <div id="lquiz-result"></div>
+            </div>
+            
+            <button class="return" id="return-button" onclick="legoshTracker()">RETURN TO MAP</button>
+        </div>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

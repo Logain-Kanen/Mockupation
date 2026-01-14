@@ -65,6 +65,17 @@
             bottom: 130px;
             right: 250px;
         }
+        .quiz-option {
+            display: block;
+            margin: 8px 0;
+            padding: 12px 15px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body> 
@@ -86,11 +97,131 @@
         </div>
 
         <!--After-Minigame Lesson-->
-        <div class="lesson-textbox" id="lesson">
-            <p>Plumbers, Steamfitters, and Pipefitters are jobs that often fall under the umbrella of plumbing. They deal with pipes, drains, heating, and cooling equipment, as well as the tools needed for these jobs. Turning valves, while certainly part of the job, is an oversimplification of everything required for a career centered around plumbing. Monitering key systems of not only pipes but also all the machines and technology connected to them is a critical part of having a job in plumbing.</p>
-            <ul></ul>
+        <div class="lesson-textbox" id="hlesson">
+            <h2>Career Spotlight: Plumber, Pipefitter, Steamfitter</h2>
+            
+            <p>Plumbers Pipefitters and Steamfitters all have a similar job of dealing with pipes and their connected technologies</p>
+            
+            <h3>Plumber Tasks</h3>
+            <ul>
+                <li><strong>Manage Piping:</strong> Managing piping for pressure, both low and high</li>
+                <li><strong>Undergound Installation:</strong> Installation of underground pipes is common, and extending existing piping</li>
+                <li><strong>Catastrophic Failures:</strong> Plumbers need to be able to deal with certain systems breaking and being able to fix these sytsems</li>
+                <li><strong>Appliances:</strong> Installation and repair of appliances and their peripherals, including dishwashers, sinks, and toilets</li>
+                <li><strong>Estimate Time and Costs:</strong> Being able to provide an estimation for your services is important for consumer interaction</li>
+            </ul>
+
+            <h3>Education & Skills Needed</h3>
+            <ul>
+                <li><strong>Post-Secondary:</strong> Post-Secondary is often a requirement for work in the field</li>
+                <li><strong>Advanced Degrees:</strong> Advanced degrees are rarely required</li>
+                <li><strong>Skills:</strong> Being able to track precise movements, capability of planning out work</li>
+            </ul>
+            
+            <h3>Work Environment</h3>
+            <ul>
+                <li><strong>Fieldwork:</strong> Most of plumbers work environment is out in a field</li>
+                <li><strong>Office Work:</strong> There still exists minimal office work, mostly processing client requests</li>
+            </ul>
+            
+            <h3>Salary & Career Outlook</h3>
+            <ul>
+                <li><strong>Median Salary:</strong> Around $62,970 per year</li>
+                <li><strong>High Pay:</strong> Over $100,000 for veteran plumbers in the top 10%</li>
+                <li><strong>Job Growth:</strong> Fast growth is expected as more homes are made</li>
+            </ul>
+            
+            <!-- Quiz Section -->
+            <div id="quiz-section">
+                <h3>✏️ Check Your Understanding</h3>
+                <p style="font-style: italic;">Test what you've learned about plumbing</p>
+                
+                <div class="quiz-question">
+                    <h4>Question 1: What is the primary role of plumbers?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="a" onclick="checkHAnswer(1, 'a')">
+                        A) Only turn valves
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="b" onclick="checkHAnswer(1, 'b')">
+                        B) Manage piping, machines, and other peripherals related to the machines
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="c" onclick="checkHAnswer(1, 'c')">
+                        C) Changing pipe directions
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 2: What machines do plumbers work on?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="a" onclick="checkHAnswer(2, 'a')">
+                        A) Tractors and silos
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="b" onclick="checkHAnswer(2, 'b')">
+                        B) Dishwashers, sinks, and toilets
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="c" onclick="checkHAnswer(2, 'c')">
+                        C) Microscopes, printers, and copiers
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 3: What is the typical education requirement for this career?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="a" onclick="checkHAnswer(3, 'a')">
+                        A) High school diploma or GED
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="b" onclick="checkHAnswer(3, 'b')">
+                        B) Post-secondary
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="c" onclick="checkHAnswer(3, 'c')">
+                        C) No formal education needed
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 4: Where do agricultural scientists work?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="a" onclick="checkHAnswer(4, 'a')">
+                        A) Always in an office
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="b" onclick="checkHAnswer(4, 'b')">
+                        B) At their own home
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="c" onclick="checkHAnswer(4, 'c')">
+                        C) Other's homes and minimal office work
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 5: Why is this career field growing?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="a" onclick="checkHAnswer(5, 'a')">
+                        A) Growing amount of housing
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="b" onclick="checkHAnswer(5, 'b')">
+                        B) Housing is becoming rarer
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="c" onclick="checkHAnswer(5, 'c')">
+                        C) AI is completely taking over this job
+                    </label>
+                </div>
+                
+                <div id="hquiz-result"></div>
+            </div>
+            
             <button class="return" onclick="hephTracker()">RETURN TO MAP</button>
         </div>
+        
 
     </div>
     <script src="main.js"></script>
