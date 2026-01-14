@@ -29,9 +29,60 @@
             height: 100%;
             visibility: hidden;
         }
+        
         .textbox{
             font-size: 16px;
         }
+        .house{
+            visibility: hidden;
+            opacity: 0.2;
+            position: absolute;
+        }
+        #house-body{
+            visibility: hidden;
+            width: 59%;
+            height: 45%;
+            right: 22%;
+            bottom: 27%;
+        }
+        .house-windows{
+            width: 10%;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0.2;
+            z-index: 2;
+        }
+        #house-roof{
+            width: 59%;
+            height: 40%;
+            right: 22%;
+            top: 6%;
+        }
+        #house-door{
+            width: 18%;
+            right: 18%;
+            bottom: 26%;
+        }
+        #window1{
+            right: 40%;
+            top: 40%;
+        }
+        #window2{
+            left: 30%;
+            top: 40%;
+        }
+        .quiz-option {
+            display: block;
+            margin: 8px 0;
+            padding: 12px 15px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
     </style>
 </head>
 <body> 
@@ -41,81 +92,145 @@
         <div class="textbox" id="text2" onclick="document.getElementById('text2').style.visibility= 'hidden'; document.getElementById('text3').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT (Over Radio): Frostbite, temperatures here average below -400&deg; fahrenheit, Any liquid here freezes in a matter of seconds so it makes sense that no one wants to live here.</div>
         <div class="textbox" id="text3" onclick="document.getElementById('text3').style.visibility= 'hidden'; document.getElementById('text4').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Yup and we're here to fix that! The owner of this planet has asked us to make it habitable so he can attract more tourists and potential citizens.</div>
         <div class="textbox" id="text4" onclick="document.getElementById('text4').style.visibility= 'hidden'; document.getElementById('text5').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">Alrighty then, you should be getting the files for a costruction worker right about now, first the owner of this planet wants us to build a house to see how it holds up in this weather.</div>
-        <div class="textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('minigame-container').style.visibility= 'visible'">TUTORIAL: Click on the part of the house with a low opacity to build it, the minigame is finished once all parts are built</div>
+        <div class="textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('minigame-container').style.visibility= 'visible'; document.getElementById('house-body').style.visibility= 'visible'" >TUTORIAL: Click on the part of the house with a low opacity to build it, the minigame is finished once all parts are built</div>
 
         <!-- Minigame -->
         <div id="minigame-container">
             <img src="images/frostbite-minigame.png" alt="frostbite-minigame-background" id="minigame-bg" class="bg">
-            <div id="house-body" class="house"><img src="images/house.png" alt="house-body"></div>
-            <div id="house-door" class="house"><img src="images/house.png" alt="house-door"></div>
-            <div id="house-roofs" class="house"><img src="images/house.png" alt="house-roofs"></div>
-            <div id="house-windows" class="house"><img src="images/house.png" alt="house-windows"></div>
+            <img id="house-body" class="house" src="images/house-body.png" alt="house-body">
+            <img id="house-door" class="house" src="images/house-door.png" alt="house-door">
+            <img id="house-roof" class="house" src="images/house-roof.png" alt="house-roof">
+            <img class="house-windows" class="house" id="window1" src="images/house-window.png" alt="house-windows">
+            <img class="house-windows" class="house" id="window2" src="images/house-window.png" alt="house-windows">
         </div>
 
         <!--After-Minigame Lesson-->
-        <div class="lesson-textbox" id="lesson">
-            <p></p> 
-            <ul></ul>
-            <a class="return" href="index.html">RETURN TO MAP</a>
+        <div class="lesson-textbox" id="flesson">
+            <h2>Career Spotlight: Construction</h2>
+            
+            <p>Construction is a varied and physically challenging career with multiple jobs linked to it, so a much more simplified version is: construction is the process of building or repairing structures. </p>
+            
+            <h3>Day to Day Construction</h3>
+            <ul>
+                <li><strong>Basic Construction:</strong> Laying of brick, drywall, wood frames, and other building materials, as well as the unique steps for each material </li>
+                <li><strong>Heavy Machinery:</strong> The use of heavy machinery is very common in construction, and the usage of these machines requires focus and awareness to avoid damage</li>
+                <li><strong>Traffic Around Workzones:</strong> Construction will often interfere with the traffic of cars and people, signs and barriers need to be placed to manage this</li>
+                <li><strong>Proper Estimations:</strong> Customer interaciton is important, as such communication with the client is critical</li>
+            </ul>
+
+            <h3>Education & Skills Needed</h3>
+            <ul>
+                <li><strong>High-School Diploma:</strong> Construction is not a demanding job, only requiring a high-school diploma or equivalent</li>
+                <li><strong>Advanced Degrees:</strong> Advanced degrees are rarely required, even then, only highly advanced construction fields will require them</li>
+                <li><strong>Measuring:</strong> Precision of measurements is a critical part of construction</li>
+                <li><strong>Physical:</strong> A primary part of construction if physical labor, so physical strength is important</li>
+            </ul>
+            
+            <h3>Work Environment</h3>
+            <ul>
+                <li><strong>Fieldwork:</strong> Almost all work is done in the field, on construction sites and mostly outside</li>
+                <li><strong>Management:</strong> Construction managers will often also be present on the field, but they have a small amount of office work as management</li>
+                <li><strong>Enviornment:</strong> The enviornment of construction is heavily varied, as construction can be done nearly anywhere. Like the suburbs, the city, even rural areas.</li>
+            </ul>
+            
+            <h3>Salary & Career Outlook</h3>
+            <ul>
+                <li><strong>Median Salary:</strong> Around $46,730 per year</li>
+                <li><strong>High Pay:</strong> Even top 10% for basic construction jobs is $77,530</li>
+                <li><strong>Job Growth:</strong> Incredibly fast growth is expected as demands for construction rises</li>
+            </ul>
+            
+            <!-- Quiz Section -->
+            <div id="quiz-section">
+                <h3>Check Your Understanding</h3>
+                <p style="font-style: italic;">Test what you've learned about construction</p>
+                
+                <div class="quiz-question">
+                    <h4>Question 1: What is the primary role of construction?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="a" onclick="checkFAnswer(1, 'a')">
+                        A) Moving bricks around
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="b" onclick="checkFAnswer(1, 'b')">
+                        B) Construction and repairing of buildings
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="c" onclick="checkFAnswer(1, 'c')">
+                        C) Operating heavy machinery
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 2: What type of structures do construction workers build?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="a" onclick="checkFAnswer(2, 'a')">
+                        A) Office buildings and skyscrapers
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="b" onclick="checkFAnswer(2, 'b')">
+                        B) All types of buildings in every way of living
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="c" onclick="checkFAnswer(2, 'c')">
+                        C) Barns, houses, and hotels
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 3: What is the typical education requirement for this career?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="a" onclick="checkFAnswer(3, 'a')">
+                        A) Master's degree
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="b" onclick="checkFAnswer(3, 'b')">
+                        B) High school diploma or GED
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="c" onclick="checkFAnswer(3, 'c')">
+                        C) Post-secondary
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 4: Where do construction workers work?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="a" onclick="checkFAnswer(4, 'a')">
+                        A) Only cities
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="b" onclick="checkFAnswer(4, 'b')">
+                        B) Only suburbs and rural areas
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="c" onclick="checkFAnswer(4, 'c')">
+                        C) Nearly everywhere
+                    </label>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Question 5: Why is this career field growing?</h4>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="a" onclick="checkFAnswer(5, 'a')">
+                        A) Growing demand for construction
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="b" onclick="checkFAnswer(5, 'b')">
+                        B) Less construction is needed
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="c" onclick="checkFAnswer(5, 'c')">
+                        C) People are required to assist in automation
+                    </label>
+                </div>
+                
+                <div id="fquiz-result"></div>
+            </div>
+            <a class="return" href="index.html" onclick="frostTracker()">RETURN TO MAP</a>
         </div>
 
     </div>
-    <script>
-        onload=document.getElementById('text1').style.visibility= 'visible'
-        
-        document.getElementById("house-body").addEventListener("click", houseFun1);
-        document.getElementById("house-door").addEventListener("click", houseFun2);
-        document.getElementById("house-roofs").addEventListener("click", houseFun3);
-        document.getElementById("house-windows").addEventListener("click", houseFun4);
-
-        function houseFunc1(){
-            count1--
-            if(count1== 0){
-                document.getElementById("count-content1").textContent="DONE"
-                document.getElementById("house1").removeEventListener('click', houseFunc1)
-
-            }
-            else{
-                document.getElementById("count-content1").textContent=" " +count1
-            }
-        }
-        function houseFunc2(){
-            count2--
-            if(count2== 0){
-                document.getElementById("count-content2").textContent="DONE"
-                document.getElementById("house2").removeEventListener('click', houseFunc2)
-
-            }
-            else{
-                document.getElementById("count-content2").textContent=count2
-            }
-        }
-        function houseFunc3(){
-            count3--
-            if(count3== 0){
-                document.getElementById("count-content3").textContent="DONE"
-                document.getElementById("house3").removeEventListener('click', houseFunc3)
-
-            }
-            else{
-                document.getElementById("count-content3").textContent=count3
-            }
-        }
-        function houseFunc4(){
-            count4--
-            if(count4== 0){
-                document.getElementById("count-content4").textContent="DONE"
-                document.getElementById("house4").removeEventListener('click', houseFunc4)
-
-            }
-            else{
-                document.getElementById("count-content4").textContent=count4
-            }
-        }
-
-        if(count1==0&&count2==0&&count3==0&&count4==0){
-            document.getElementById("lesson").style.visibility = "visible"
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
