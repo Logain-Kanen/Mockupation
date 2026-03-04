@@ -368,10 +368,11 @@ onload=document.getElementById('text1').style.visibility= 'visible';
 // Completion Trackers
 function hephTracker(){
     localStorage.setItem("hephestus-completion", "Hephestus: COMPLETED")
-    window.location.href = "/index.html"
+    window.location.href = "/map.html"
 }
 function legoshTracker(){
     localStorage.setItem("legoshia-completion", "Legoshia: COMPLETED")
-    window.location.href = "/index.html"
+    window.location.href = "/map.html"
 }
+
 
