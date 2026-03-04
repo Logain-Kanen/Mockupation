@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: PixelFont, Arial, Helvetica, sans-serif;
+}
+
+@font-face{
+    font-family: PixelFont;
+    src: url("PixelatedEleganceRegular-ovyAA.ttf");
+}
+.textbox{
+    visibility: hidden;
+    position: absolute;
+    bottom: 0px;
+    height: 30%;
+    background-color: rgb(185, 185, 185);
+    border: 4px solid black;
+    right: 0px;
+    width: 50%;
+    padding: 20px;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+.lesson-textbox{
+    visibility: hidden;
+    position: absolute;
+    height: 100%;
+    font-size: 1.7em;
+    background-color: rgb(185, 185, 185);
+    border: 4px solid black;
+    padding: 20px;
+    line-height: 2em;
+    z-index: 5;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    overflow: auto;
+    padding: 60px;
+}
+.return{
+    width: 600px;
+    background-color: rgb(163, 163, 163);
+    border: 4px solid white;
+    text-align: center;
+    height: 50px;
+    font-size: 20px;
+}
+.textbox img{
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#selection{
+    position: absolute;
+    right: 0%;
+    height: 100%;
+    width: 40%;
+    background-color: rgb(56, 56, 56);
+    border: 4px solid black;
+    box-shadow: inset 0 0 0 18px rgb(179, 179, 179);
+    display: grid;
+    padding: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7% 1fr 1fr 6%;
+    color: black;
+    gap: 8px;
+    text-align: center;
+    visibility: hidden;
+}
+#planet-picture{
+    grid-column: 1 / span 2;
+    width: 100%;
+}
+#selection h1{
+    grid-column: 1 / span 2;
+}
+#selection-portion{
+    background-color: rgb(185, 185, 185);
+    border: 4px solid black;
+    padding: 10px;
+}
+#enter{
+    background-color: green;
+    border: 2px solid black;
+    align-content: center;
+}
+#return{
+    background-color: red;
+    border: 2px solid black;
+    align-content: center;
+    font-size: 18px;
+}
