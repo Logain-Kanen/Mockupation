@@ -1,205 +1,689 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mockupation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        body{
-            background-image: url('images/background-stars.png');
-            align-content: center;
-            justify-content: center;
-            display: flex;
-            height: 100vh;
-        }
-        
-        #container{
-            height: 100%;
-            width: 79%;
-            position: relative;
-        }
-        .bg{
-            height: 100%;
-            position: fixed;
-            z-index: -1;
-        }
-        #minigame-container{
-            z-index: 1;
-            height: 100%;
-            visibility: hidden;
-        }
-        .textbox{
-            font-size: 16px;
-        }
-        .quiz-option {
-            display: block;
-            margin: 8px 0;
-            padding: 12px 15px;
-            background-color: white;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
-        }
-        #tutorial{
-            position: absolute;
-            top: 40%;
-            right: 40%;
-            width: 400px;
-            height: 200px;
-        }
+      body {
+        background-image: url("images/Space-Background.png");
+        align-content: center;
+        justify-content: center;
+        display: flex;
+        height: 100vh;
+        background-size: cover;
+      }
+
+      #container {
+        height: 100%;
+        width: 79%;
+        position: relative;
+      }
+      .bg {
+        height: 100%;
+        position: fixed;
+        z-index: -1;
+        width: 78.7%;
+      }
+      #minigame-container {
+        z-index: 1;
+        height: 100%;
+        visibility: hidden;
+      }
+
+      .textbox {
+        font-size: 16px;
+      }
+      .quiz-option {
+        display: block;
+        margin: 8px 0;
+        padding: 12px 15px;
+        background-color: white;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 16px;
+      }
+      #tutorial {
+        position: absolute;
+        top: 40%;
+        right: 40%;
+        width: 400px;
+        height: 200px;
+      }
+      .cracks {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+      }
+      .cracks video {
+        width: 150px;
+        height: 150px;
+      }
+      .alert {
+        visibility: hidden;
+        background-color: #ddd;
+      }
+      #div1 {
+        left: 100px;
+        top: 10px;
+      }
+      #div2 {
+        left: 170px;
+        top: 400px;
+      }
+      #div3 {
+        right: 200px;
+        top: 180px;
+      }
+      #div4 {
+        right: 400px;
+        top: 400px;
+      }
+      #div5 {
+        right: 600px;
+        top: 600px;
+      }
+      #tutorial {
+        position: absolute;
+        top: 20%;
+        right: 40%;
+        width: 400px;
+        height: 200px;
+      }
+      .correct {
+        background-color: rgb(60, 255, 83);
+      }
+      .incorrect {
+        background-color: rgb(255, 75, 75);
+      }
     </style>
-</head>
-<body> 
+  </head>
+  <body>
     <div id="container">
-        <img class="bg" src="images/Hephestus-bg.png" alt="bg">
-        <div class="textbox" id="text1" onclick="document.getElementById('text1').style.visibility= 'hidden'; document.getElementById('text2').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Okay so this planet is...</div>
-        <div class="textbox" id="text2" onclick="document.getElementById('text2').style.visibility= 'hidden'; document.getElementById('text3').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT (Over Radio): Duneterra, heat around here sits at a constant 90 to 120 degrees</div>
-        <div class="textbox" id="text3" onclick="document.getElementById('text3').style.visibility= 'hidden'; document.getElementById('text4').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Who would want to live in a desert where the sun is constantly burning them?</div>
-        <div class="textbox" id="text4" onclick="document.getElementById('text4').style.visibility= 'hidden'; document.getElementById('text5').style.visibility='visible';"><img src="images/bob-default.png" alt="Bobert">BOBERT (Over Radio): I don't know. I guess the people here have gotten accustomed to the heat.</div>
-        <div class="textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('text6').style.visibility= 'visible'"><img src="images/Rob-default.png" alt="Robert">ROBERT (Over Radio): Huh. I never thought of that. Anyways, the metal outer walls for the primary shelter have cracked. So, you'll be recieving the files for welding here in a moment.</div>
-        <div class="textbox" id="text6" onclick="document.getElementById('text6').style.visibility= 'hidden'; document.getElementById('minigame-container').style.visibility= 'visible'">TUTORIAL: Click and hold every break in the wall to weld it back together, the time needed will be above every crack, weld every crack back together to finish the minigame!</div>
+      <img class="bg" src="images/Duneterra-background.png" alt="bg" />
+      <div
+        class="textbox"
+        id="text1"
+        onclick="
+          document.getElementById('text1').style.visibility = 'hidden';
+          document.getElementById('text2').style.visibility = 'visible';
+        "
+      >
+        <img src="images/Rob-default.png" alt="Robert" />ROBERT (Over Radio):
+        Okay so this planet is...
+      </div>
+      <div
+        class="textbox"
+        id="text2"
+        onclick="
+          document.getElementById('text2').style.visibility = 'hidden';
+          document.getElementById('text3').style.visibility = 'visible';
+        "
+      >
+        <img src="images/bob-regular.png" alt="Bobert" />BOBERT (Over Radio):
+        Duneterra, heat around here sits at a constant 90 to 120 degrees
+      </div>
+      <div
+        class="textbox"
+        id="text3"
+        onclick="
+          document.getElementById('text3').style.visibility = 'hidden';
+          document.getElementById('text4').style.visibility = 'visible';
+        "
+      >
+        <img src="images/Rob-default.png" alt="Robert" />ROBERT (Over Radio):
+        Who would want to live in a desert where the sun is constantly burning
+        them?
+      </div>
+      <div
+        class="textbox"
+        id="text4"
+        onclick="
+          document.getElementById('text4').style.visibility = 'hidden';
+          document.getElementById('text5').style.visibility = 'visible';
+        "
+      >
+        <img src="images/bob-regular.png" alt="Bobert" />BOBERT (Over Radio): I
+        don't know. I guess the people here have gotten accustomed to the heat.
+      </div>
+      <div
+        class="textbox"
+        id="text5"
+        onclick="
+          document.getElementById('text5').style.visibility = 'hidden';
+          document.getElementById('text6').style.visibility = 'visible';
+        "
+      >
+        <img src="images/Rob-default.png" alt="Robert" />ROBERT (Over Radio):
+        ter have cracked. So, you'll be recieving the files for welding here in
+        a moment.
+      </div>
+      <div
+        class="textbox"
+        id="text6"
+        onclick="
+          document.getElementById('text6').style.visibility = 'hidden';
+          document.getElementById('minigame-container').style.visibility =
+            'visible';
+          document.getElementById('tutorial').style.visibility = 'visible';
+        "
+      >
+        TUTORIAL: Click and hold on each crack to weld it together, weld every
+        crack together to finish the minigame!
+      </div>
 
-        <!-- Minigame -->
-        <div id="minigame-container">
-            <img src="images/hephestus-minigame.png" alt="Pipes" id="minigame-bg" class="bg">
-            <div id="valve1" class="valve"><div id="count-content1"></div><img src="images/Valve.png" alt="Valve"></div>
-            <div id="valve2" class="valve"><div id="count-content2"></div><img src="images/Valve.png" alt="Valve"></div>
-            <div id="valve3" class="valve"><div id="count-content3"></div><img src="images/Valve.png" alt="Valve"></div>
-            <div id="valve4" class="valve"><div id="count-content4"></div><img src="images/Valve.png" alt="Valve"></div>
-            <div class="textbox" id="tutorial">Click and hold every break in the wall to weld it back together, the time needed will be above every crack, weld every crack back together to finish the minigame</div>
+      <!-- Minigame -->
+      <div id="minigame-container">
+        <img
+          src="images/Duneterra-MiniGame.png"
+          alt="Wall of Metal"
+          id="minigame-bg"
+          class="bg"
+        />
+        <p class="textbox" id="tutorial">
+          Click and hold on each crack until it displays DONE
+        </p>
+        <div id="div1" class="cracks">
+          <p id="alert1" class="alert">DONE</p>
+          <video
+            src="images/videos/crack1.webm"
+            onmousedown="startVideo(1)"
+            onmouseup="stopVideo(1)"
+            id="crack1"
+          ></video>
+        </div>
+        <div id="div2" class="cracks">
+          <p id="alert2" class="alert">DONE</p>
+          <video
+            src="images/videos/crack2.webm"
+            onmousedown="startVideo(2)"
+            onmouseup="stopVideo(2)"
+            id="crack2"
+          ></video>
+        </div>
+        <div id="div3" class="cracks">
+          <p id="alert3" class="alert">DONE</p>
+          <video
+            src="images/videos/crack3.webm"
+            onmousedown="startVideo(3)"
+            onmouseup="stopVideo(3)"
+            id="crack3"
+          ></video>
+        </div>
+        <div id="div4" class="cracks">
+          <p id="alert4" class="alert">DONE</p>
+          <video
+            src="images/videos/crack4.webm"
+            onmousedown="startVideo(4)"
+            onmouseup="stopVideo(4)"
+            id="crack4"
+          ></video>
+        </div>
+        <div id="div5" class="cracks">
+          <p id="alert5" class="alert">DONE</p>
+          <video
+            src="images/videos/crack5.webm"
+            onmousedown="startVideo(5)"
+            onmouseup="stopVideo(5)"
+            id="crack5"
+          ></video>
+        </div>
+      </div>
+
+      <!--After-Minigame Lesson-->
+      <div class="lesson-textbox" id="lesson">
+        <h2>Career Spotlight: Welders</h2>
+
+        <p>
+          Welders, Cutters, Solderers, and Brazers are all similar jobs, having
+          to do with joining and separating metal components together using heat
+          and various methods of welding
+        </p>
+
+        <h3>Welder Tasks</h3>
+        <ul>
+          <li>
+            <strong>Welding Components:</strong> The most important part of the
+            job, welding parts together; both flat and curved pieces, corners,
+            and vertical areas
+          </li>
+          <li>
+            <strong>Safety:</strong> Welding itself is a more dangerous job, so
+            proper understanding of both safety gear and procedures is the first
+            priority
+          </li>
+          <li>
+            <strong>Non Heat Based:</strong> Beyond heat, there are some metal
+            pieces that may need to be bent, grinded, or cut, handling power
+            tools needed for that is also important.
+          </li>
+          <li>
+            <strong>Soldering:</strong> Melt and apply solder to fill holes,
+            indentations, or seams.
+          </li>
+          <li>
+            <strong>Tools:</strong> There is a large number of tools associated
+            with welding, and knowing how to use each and every tool is key to
+            successful welding
+          </li>
+        </ul>
+
+        <h3>Education & Skills Needed</h3>
+        <ul>
+          <li>
+            <strong>High School Degree:</strong> For many of the entry jobs only
+            a high school diploma is required
+          </li>
+          <li>
+            <strong>Post-Secondary:</strong> Very few entry jobs may have a
+            Post-Secondary certificate requirement
+          </li>
+          <li>
+            <strong>Skills:</strong> Precise and steady movements are heavily
+            required, as well as attention to detail.
+          </li>
+        </ul>
+
+        <h3>Work Environment</h3>
+        <ul>
+          <li>
+            <strong>Fieldwork:</strong> Most of welding work is done in the
+            field, oftentimes outside
+          </li>
+          <li>
+            <strong>Office Work:</strong> Small amounts of office work are still
+            present, mostly customer interaction
+          </li>
+        </ul>
+
+        <h3>Salary & Career Outlook</h3>
+        <ul>
+          <li><strong>Median Salary:</strong> Around $53,770 per year</li>
+          <li>
+            <strong>High Pay:</strong> Over top 10% sits at around $82,040
+          </li>
+          <li>
+            <strong>Job Growth:</strong> Slower growth due to automation, but
+            growth is still expected
+          </li>
+        </ul>
+
+        <!-- Quiz Section -->
+        <div id="quiz-section">
+          <h3>Check Your Understanding</h3>
+          <p style="font-style: italic">
+            Test what you've learned about welding
+          </p>
+
+          <div class="quiz-question">
+            <h4>Question 1: What is the primary role of welders?</h4>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q1"
+                value="a"
+                onclick="checkAnswer(1, 'a')"
+              />
+              A) Fix metal walls
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q1"
+                value="b"
+                onclick="checkAnswer(1, 'b')"
+              />
+              B) Deploying various methods to fix metal components
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q1"
+                value="c"
+                onclick="checkAnswer(1, 'c')"
+              />
+              C) Melting metal together
+            </label>
+          </div>
+
+          <div class="quiz-question">
+            <h4>Question 2: How important is safety?</h4>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q2"
+                value="a"
+                onclick="checkAnswer(2, 'a')"
+              />
+              A) Mostly important
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q2"
+                value="b"
+                onclick="checkAnswer(2, 'b')"
+              />
+              B) The first priority
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q2"
+                value="c"
+                onclick="checkAnswer(2, 'c')"
+              />
+              C) Not very
+            </label>
+          </div>
+
+          <div class="quiz-question">
+            <h4>
+              Question 3: What is the typical education requirement for this
+              career?
+            </h4>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q3"
+                value="a"
+                onclick="checkAnswer(3, 'a')"
+              />
+              A) Post-Secondary
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q3"
+                value="b"
+                onclick="checkAnswer(3, 'b')"
+              />
+              B) High school diploma or GED
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q3"
+                value="c"
+                onclick="checkAnswer(3, 'c')"
+              />
+              C) High-level degree
+            </label>
+          </div>
+
+          <div class="quiz-question">
+            <h4>Question 4: Where do welders work?</h4>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q4"
+                value="a"
+                onclick="checkAnswer(4, 'a')"
+              />
+              A) Sitting at a desk
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q4"
+                value="b"
+                onclick="checkAnswer(4, 'b')"
+              />
+              B) Only out at random places
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q4"
+                value="c"
+                onclick="checkAnswer(4, 'c')"
+              />
+              C) At various places along with minimal office work
+            </label>
+          </div>
+
+          <div class="quiz-question">
+            <h4>Question 5: About how much does an entry job pay?</h4>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q5"
+                value="a"
+                onclick="checkAnswer(5, 'a')"
+              />
+              A) $53,770
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q5"
+                value="b"
+                onclick="checkAnswer(5, 'b')"
+              />
+              B) $82,040
+            </label>
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="q5"
+                value="c"
+                onclick="checkAnswer(5, 'c')"
+              />
+              C) $42,530
+            </label>
+          </div>
+
+          <div id="quiz-result"></div>
         </div>
 
-        <!--After-Minigame Lesson-->
-        <div class="lesson-textbox" id="hlesson">
-            <h2>Career Spotlight: Welding</h2>
-            
-            <p>Plumbers Pipefitters and Steamfitters all have a similar job of dealing with pipes and their connected technologies</p>
-            
-            <h3>Plumber Tasks</h3>
-            <ul>
-                <li><strong>Manage Piping:</strong> Managing piping for pressure, both low and high</li>
-                <li><strong>Undergound Installation:</strong> Installation of underground pipes is common, and extending existing piping</li>
-                <li><strong>Catastrophic Failures:</strong> Plumbers need to be able to deal with certain systems breaking and being able to fix these sytsems</li>
-                <li><strong>Appliances:</strong> Installation and repair of appliances and their peripherals, including dishwashers, sinks, and toilets</li>
-                <li><strong>Estimate Time and Costs:</strong> Being able to provide an estimation for your services is important for consumer interaction</li>
-            </ul>
-
-            <h3>Education & Skills Needed</h3>
-            <ul>
-                <li><strong>Post-Secondary:</strong> Post-Secondary is often a requirement for work in the field</li>
-                <li><strong>Advanced Degrees:</strong> Advanced degrees are rarely required</li>
-                <li><strong>Skills:</strong> Being able to track precise movements, capability of planning out work</li>
-            </ul>
-            
-            <h3>Work Environment</h3>
-            <ul>
-                <li><strong>Fieldwork:</strong> Most of plumbers work environment is out in a field</li>
-                <li><strong>Office Work:</strong> There still exists minimal office work, mostly processing client requests</li>
-            </ul>
-            
-            <h3>Salary & Career Outlook</h3>
-            <ul>
-                <li><strong>Median Salary:</strong> Around $62,970 per year</li>
-                <li><strong>High Pay:</strong> Over $100,000 for veteran plumbers in the top 10%</li>
-                <li><strong>Job Growth:</strong> Fast growth is expected as more homes are made</li>
-            </ul>
-            
-            <!-- Quiz Section -->
-            <div id="quiz-section">
-                <h3>Check Your Understanding</h3>
-                <p style="font-style: italic;">Test what you've learned about plumbing</p>
-                
-                <div class="quiz-question">
-                    <h4>Question 1: What is the primary role of plumbers?</h4>
-                    <label class="quiz-option">
-                        <input type="radio" name="q1" value="a" onclick="checkHAnswer(1, 'a')">
-                        A) Only turn valves
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q1" value="b" onclick="checkHAnswer(1, 'b')">
-                        B) Manage piping, machines, and other peripherals related to the machines
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q1" value="c" onclick="checkHAnswer(1, 'c')">
-                        C) Changing pipe directions
-                    </label>
-                </div>
-                
-                <div class="quiz-question">
-                    <h4>Question 2: What machines do plumbers work on?</h4>
-                    <label class="quiz-option">
-                        <input type="radio" name="q2" value="a" onclick="checkHAnswer(2, 'a')">
-                        A) Tractors and silos
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q2" value="b" onclick="checkHAnswer(2, 'b')">
-                        B) Dishwashers, sinks, and toilets
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q2" value="c" onclick="checkHAnswer(2, 'c')">
-                        C) Microscopes, printers, and copiers
-                    </label>
-                </div>
-                
-                <div class="quiz-question">
-                    <h4>Question 3: What is the typical education requirement for this career?</h4>
-                    <label class="quiz-option">
-                        <input type="radio" name="q3" value="a" onclick="checkHAnswer(3, 'a')">
-                        A) High school diploma or GED
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q3" value="b" onclick="checkHAnswer(3, 'b')">
-                        B) Post-secondary
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q3" value="c" onclick="checkHAnswer(3, 'c')">
-                        C) No formal education needed
-                    </label>
-                </div>
-                
-                <div class="quiz-question">
-                    <h4>Question 4: Where do agricultural scientists work?</h4>
-                    <label class="quiz-option">
-                        <input type="radio" name="q4" value="a" onclick="checkHAnswer(4, 'a')">
-                        A) Always in an office
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q4" value="b" onclick="checkHAnswer(4, 'b')">
-                        B) At their own home
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q4" value="c" onclick="checkHAnswer(4, 'c')">
-                        C) Other's homes and minimal office work
-                    </label>
-                </div>
-                
-                <div class="quiz-question">
-                    <h4>Question 5: Why is this career field growing?</h4>
-                    <label class="quiz-option">
-                        <input type="radio" name="q5" value="a" onclick="checkHAnswer(5, 'a')">
-                        A) Growing amount of housing
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q5" value="b" onclick="checkHAnswer(5, 'b')">
-                        B) Housing is becoming rarer
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="q5" value="c" onclick="checkHAnswer(5, 'c')">
-                        C) AI is completely taking over this job
-                    </label>
-                </div>
-                
-                <div id="hquiz-result"></div>
-            </div>
-            
-            <button class="return" onclick="hephTracker()">RETURN TO MAP</button>
-        </div>
-        
-
+        <button class="return" onclick="duneTracker()">RETURN TO MAP</button>
+      </div>
     </div>
-    <script src="main.js"></script>
-</body>
+    <script>
+      let questionsAnswered = 0;
+      let userAnswers = {};
+      onload = document.getElementById("text1").style.visibility = "visible";
+      let filled1 = 0,
+        filled2 = 0,
+        filled3 = 0,
+        filled4 = 0,
+        filled5 = 0;
+      let interval1;
+      let interval2;
+      let interval3;
+      let interval4;
+      let interval5;
+      function startVideo(crack) {
+        if (crack == 1) {
+          document.getElementById("crack1").play();
+          interval1 = setInterval(() => {
+            filled1++;
+            if (filled1 === 20) {
+              document.getElementById("crack1").onmousedown = null;
+              clearInterval(interval1);
+              document.getElementById("alert1").style.visibility = "visible";
+              checkCompletion();
+            }
+          }, 100);
+        }
+        if (crack == 2) {
+          document.getElementById("crack2").play();
+          interval2 = setInterval(() => {
+            filled2++;
+            if (filled2 === 20) {
+              document.getElementById("crack2").onmousedown = null;
+              clearInterval(interval2);
+              document.getElementById("alert2").style.visibility = "visible";
+              checkCompletion();
+            }
+          }, 100);
+        }
+        if (crack == 3) {
+          document.getElementById("crack3").play();
+          interval3 = setInterval(() => {
+            filled3++;
+            if (filled3 === 20) {
+              clearInterval(interval3);
+              document.getElementById("alert3").style.visibility = "visible";
+              checkCompletion();
+            }
+          }, 100);
+        }
+        if (crack == 4) {
+          document.getElementById("crack4").play();
+          interval4 = setInterval(() => {
+            filled4++;
+            if (filled4 === 20) {
+              clearInterval(interval4);
+              document.getElementById("alert4").style.visibility = "visible";
+              checkCompletion();
+            }
+          }, 100);
+        }
+        if (crack == 5) {
+          document.getElementById("crack5").play();
+          interval5 = setInterval(() => {
+            filled5++;
+            if (filled5 === 20) {
+              clearInterval(interval5);
+              document.getElementById("alert5").style.visibility = "visible";
+              checkCompletion();
+            }
+          }, 100);
+        }
+      }
+      function stopVideo(crack) {
+        if (crack == 1) {
+          document.getElementById("crack1").pause();
+          clearInterval(interval1);
+        }
+        if (crack == 2) {
+          document.getElementById("crack2").pause();
+          clearInterval(interval2);
+        }
+        if (crack == 3) {
+          document.getElementById("crack3").pause();
+          clearInterval(interval3);
+        }
+        if (crack == 4) {
+          document.getElementById("crack4").pause();
+          clearInterval(interval4);
+        }
+        if (crack == 5) {
+          document.getElementById("crack5").pause();
+          clearInterval(interval5);
+        }
+      }
+      function checkCompletion() {
+        if (
+          filled1 >= 19 &&
+          filled2 >= 19 &&
+          filled3 >= 19 &&
+          filled4 >= 19 &&
+          filled5 >= 19
+        ) {
+          document.getElementById("lesson").style.visibility = "visible";
+        }
+      }
+
+      function checkAnswer(questionNum, answer) {
+        // Record the answer
+        if (!userAnswers[questionNum]) {
+          questionsAnswered++;
+        }
+        userAnswers[questionNum] = answer;
+
+        // Get all options for this question
+        const options = document.querySelectorAll(
+          `input[name="q${questionNum}"]`,
+        );
+
+        // Disable all options for this question
+        options.forEach((option) => {
+          option.parentElement.classList.add("disabled");
+          option.disabled = true;
+        });
+
+        // Mark correct/incorrect
+        const selectedOption = document.querySelector(
+          `input[name="q${questionNum}"][value="${answer}"]`,
+        );
+        if (answer === correctAnswers[questionNum]) {
+          selectedOption.parentElement.classList.add("correct");
+        } else {
+          selectedOption.parentElement.classList.add("incorrect");
+          // Also highlight the correct answer
+          const correctOption = document.querySelector(
+            `input[name="q${questionNum}"][value="${correctAnswers[questionNum]}"]`,
+          );
+          correctOption.parentElement.classList.add("correct");
+        }
+
+        // Check if all questions are answered
+        if (questionsAnswered === 5) {
+          showResults();
+        }
+      }
+
+      const correctAnswers = {
+        1: "b",
+        2: "b",
+        3: "b",
+        4: "c",
+        5: "a",
+      };
+
+      function showResults() {
+        let correctCount = 0;
+        for (let q = 1; q <= 5; q++) {
+          if (userAnswers[q] === correctAnswers[q]) {
+            correctCount++;
+          }
+        }
+
+        const resultDiv = document.getElementById("quiz-result");
+        const percentage = (correctCount / 5) * 100;
+
+        resultDiv.classList.add("show");
+
+        if (percentage >= 80) {
+          resultDiv.classList.add("pass");
+          resultDiv.innerHTML = `
+                    <div>Great Job!</div>
+                    <div>You scored ${correctCount}/5 (${percentage}%)</div>
+                    <div style="font-size: 16px; margin-top: 10px; font-weight: normal;">
+                        You have a strong understanding of welding careers!
+                    </div>
+                `;
+        } else if (percentage >= 60) {
+          resultDiv.classList.add("pass");
+          resultDiv.innerHTML = `
+                    <div>Good Work!</div>
+                    <div>You scored ${correctCount}/5 (${percentage}%)</div>
+                    <div style="font-size: 16px; margin-top: 10px; font-weight: normal;">
+                        You're on the right track! Review the material above to strengthen your knowledge.
+                    </div>
+                `;
+        } else {
+          resultDiv.classList.add("fail");
+          resultDiv.innerHTML = `
+                    <div>Keep Learning!</div>
+                    <div>You scored ${correctCount}/5 (${percentage}%)</div>
+                    <div style="font-size: 16px; margin-top: 10px; font-weight: normal;">
+                        Review the career information above and try to understand the key concepts better.
+                    </div>
+                `;
+        }
+      }
+      function duneTracker() {
+        localStorage.setItem("duneterra-completion", "Duneterra: COMPLETED");
+        window.location.href = "/map.html";
+      }
+    </script>
+  </body>
 </html>

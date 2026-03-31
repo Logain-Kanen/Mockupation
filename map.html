@@ -1,242 +1,265 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Mockupation</title>
     <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            background-image: url('images/background-stars.png');
-            background-size: cover;
-            cursor: none;
-            overflow: hidden;
-        }
-        /* Spaceship */
-        #spaceship {
-            position: absolute;
-            width: 80px;
-            pointer-events: none;
-            z-index: 100;
-        }
+      body {
+        margin: 0;
+        height: 100vh;
+        background-image: url("images/Space-Background.png");
+        background-size: cover;
+        cursor: none;
+        overflow: hidden;
+      }
+      /* Spaceship */
+      #spaceship {
+        position: absolute;
+        width: 80px;
+        pointer-events: none;
+        z-index: 100;
+      }
 
-        /* Orbital paths */
-        .orbit {
-            position: absolute;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
+      /* Orbital paths */
+      .orbit {
+        position: absolute;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
 
-        #orbit1 {
-            width: 500px;
-            height: 500px;
-        }
+      #orbit1 {
+        width: 500px;
+        height: 500px;
+      }
 
-        #orbit2 {
-            width: 800px;
-            height: 800px;
-        }
+      #orbit2 {
+        width: 800px;
+        height: 800px;
+      }
 
-        #orbit3 {
-            width: 350px;
-            height: 350px;
-        }
+      #orbit3 {
+        width: 350px;
+        height: 350px;
+      }
 
-        #orbit4 {
-            width: 650px;
-            height: 650px;
-        }
+      #orbit4 {
+        width: 650px;
+        height: 650px;
+      }
 
-        .planet {
-            border-radius: 50%;
-            position: absolute;
-        }
+      .planet {
+        border-radius: 50%;
+        position: absolute;
+      }
 
-        a img {
-            width: 150px;
-        }
+      a img {
+        width: 150px;
+      }
+      #sun {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 160px;
+        height: 160px;
+        z-index: 10;
+      }
 
-        /* Individual planet sizes */
-        #ice img {
-            width: 120px;
+      /* Keyframes for orbital animations */
+      @keyframes orbit1 {
+        from {
+          transform: rotate(0deg) translateX(250px) rotate(0deg);
         }
+        to {
+          transform: rotate(360deg) translateX(250px) rotate(-360deg);
+        }
+      }
 
-        #jungle img {
-            width: 160px;
+      @keyframes orbit2 {
+        from {
+          transform: rotate(90deg) translateX(400px) rotate(-90deg);
         }
+        to {
+          transform: rotate(450deg) translateX(400px) rotate(-450deg);
+        }
+      }
 
-        #lava img {
-            width: 160px;
+      @keyframes orbit3 {
+        from {
+          transform: rotate(180deg) translateX(160px) rotate(-180deg);
         }
+        to {
+          transform: rotate(540deg) translateX(160px) rotate(-540deg);
+        }
+      }
 
-        #desert img {
-            width: 200px;
+      @keyframes orbit4 {
+        from {
+          transform: rotate(270deg) translateX(320px) rotate(-270deg);
         }
+        to {
+          transform: rotate(630deg) translateX(320px) rotate(-630deg);
+        }
+      }
 
-        #sun {
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 160px;
-            height: 160px;
-            z-index: 10;
-        }
+      /* Orbital animations for each planet */
+      #jungle-orbit {
+        position: absolute;
+        animation: orbit4 30s linear infinite;
+        transform-origin: center;
+        left: 50%;
+        top: 50%;
+        margin-left: -75px;
+        margin-top: -75px;
+        width: 150px;
+        height: 150px;
+        transition: 0s;
+      }
+      #jungle:hover {
+        transform: scale(1.3);
+      }
+      #desert{
+        width: 100%;
+        height: 100%;
+      }
+      #desert-orbit {
+        position: absolute;
+        animation: orbit1 20s linear infinite;
+        transform-origin: center;
+        left: 50%;
+        top: 50%;
+        margin-left: -80px;
+        margin-top: -80px;
+        width: 160px;
+        height: 160px;
+      }
+      
+      #desert:hover {
+        transform: scale(1.5);
+      }
 
-        /* Keyframes for orbital animations */
-        @keyframes orbit1 {
-            from {
-                transform: rotate(0deg) translateX(250px) rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg) translateX(250px) rotate(-360deg);
-            }
-        }
+      #ice {
+        width: 100%;
+        height: 100%;
+      }
+      #ice:hover{
+        transform: scale(1.5);
+      }
 
-        @keyframes orbit2 {
-            from {
-                transform: rotate(90deg) translateX(400px) rotate(-90deg);
-            }
-            to {
-                transform: rotate(450deg) translateX(400px) rotate(-450deg);
-            }
-        }
+      #ice-orbit {
+         position: absolute;
+        animation: orbit2 50s linear infinite;
+        transform-origin: center;
+        left: 50%;
+        top: 50%;
+        margin-left: -45px;
+        margin-top: -45px;
+        width: 90px;
+        height: 90px;
+      }
 
-        @keyframes orbit3 {
-            from {
-                transform: rotate(180deg) translateX(170px) rotate(-180deg);
-            }
-            to {
-                transform: rotate(540deg) translateX(170px) rotate(-540deg);
-            }
-        }
+      #lava-orbit {
+        position: absolute;
+        animation: orbit3 10s linear infinite;
+        transform-origin: center;
+        left: 50%;
+        top: 50%;
 
-        @keyframes orbit4 {
-            from {
-                transform: rotate(270deg) translateX(320px) rotate(-270deg);
-            }
-            to {
-                transform: rotate(630deg) translateX(320px) rotate(-630deg);
-            }
-        }
+        margin-left: -70px;
+        margin-top: -70px;
 
-        /* Orbital animations for each planet */
-        #jungle {
-            animation: orbit4 30s linear infinite;
-            transform-origin: center;
-            left: 50%;
-            top: 50%;
-            margin-left: -90px;
-            margin-top: -90px;
-        }
+        width: 140px;
+        height: 140px;
+      }
 
-        #desert {
-            animation: orbit1 20s linear infinite;
-            transform-origin: center;
-            left: 50%;
-            top: 50%;
-            margin-left: -100px;
-            margin-top: -100px;
-        }
+      #lava {
+        width: 100%;
+        height: 100%;
+      }
+      #lava:hover {
+        transform: scale(1.3);
+      }
 
-        #ice {
-            animation: orbit2 50s linear infinite;
-            transform-origin: center;
-            left: 50%;
-            top: 50%;
-            margin-left: -60px;
-            margin-top: -60px;
-        }
+      #menu {
+        background-color: black;
+        position: absolute;
+        right: 0;
+        opacity: 0.9;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        z-index: 90;
+      }
 
-        #lava {
-            animation: orbit3 10s linear infinite;
-            transform-origin: center;
-            left: 50%;
-            top: 50%;
-            margin-left: -80px;
-            margin-top: -80px;
-        }
+      .button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: 1;
+        position: absolute;
+        z-index: 1001;
+        cursor: pointer;
+      }
 
-        #menu {
-            background-color: black;
-            position: absolute;
-            right: 0;
-            opacity: 0.9;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            visibility: hidden;
-            z-index: 90;
-        }
+      #open {
+        visibility: visible;
+        top: 10px;
+        left: 10px;
+      }
 
-        .button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            opacity: 1;
-            position: absolute;
-            z-index: 1001;
-            cursor: pointer;
-        }
+      .menu-main {
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
 
-        #open {
-            visibility: visible;
-            top: 10px;
-            left: 10px;
-        }
+      .menu-main a {
+        width: 200px;
+        background-color: rgb(55, 55, 55);
+        border: 4px solid gray;
+        text-align: center;
+        height: 50px;
+        font-size: 20px;
+        opacity: 1;
+        text-decoration: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .menu-main {
-            font-size: 24px;
-            display: flex;
-            flex-direction: column;
-            color: white;
-            justify-content: space-evenly;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
-
-        .menu-main a {
-            width: 200px;
-            background-color: rgb(55, 55, 55);
-            border: 4px solid gray;
-            text-align: center;
-            height: 50px;
-            font-size: 20px;
-            opacity: 1;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-main button {
-            cursor: pointer;
-        }
-        #sun-container{
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 130px;
-            height: 130px;
-            z-index: 10;
-            box-shadow: 0px 0px 40px white;
-        }
+      .menu-main button {
+        cursor: pointer;
+      }
+      #sun-container {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 130px;
+        height: 130px;
+        z-index: 10;
+        box-shadow: 0px 0px 40px white;
+      }
     </style>
-</head>
-<body onmousemove="moveShip(event)">
+  </head>
+  <body onmousemove="moveShip(event)">
     <!-- Spaceship -->
-    <img id="spaceship" src="images/ship.png" alt="Spaceship">
+    <img id="spaceship" src="images/ship.png" alt="Spaceship" />
 
     <!-- Orbital paths -->
     <div id="orbit3" class="orbit"></div>
@@ -245,74 +268,237 @@
     <div id="orbit2" class="orbit"></div>
 
     <!-- Sun -->
-    <div id="sun-container"><img src="images/White-Diamond.png" alt="The Sun" id="sun" class="planet" onclick="sunTextbox()"></div>
-    
+    <div id="sun-container">
+      <img
+        src="images/White-Diamond.png"
+        alt="The Sun"
+        id="sun"
+        class="planet"
+        onclick="sunTextbox()"
+      />
+    </div>
+
     <!-- Planets -->
-    <a  id="lava" class="planet"> <!-- href="lava.html" -->
-        <img src="images/Hephestus.png" alt="Lava Planet" title="Hephestus" onclick="hephSelection()">
-    </a>
+    <!-- href="lava.html" -->
+    <div id="lava-orbit">
+      <img
+        src="images/Hephestus.png"
+        alt="Lava Planet"
+        title="Hephestus"
+        onclick="hephSelection()"
+        id="lava"
+        class="planet"
+      />
+    </div>
+    <div id="ice-orbit">
+      <img
+        src="images/FrostBite.png"
+        alt="Ice Planet"
+        title="Frostbite"
+        onclick="frostSelection()"
+        id="ice"
+        class="planet"
+      />
+    </div>
     
-    <a href="ice.html" id="ice" class="planet">
-        <img src="images/FrostBite.png" alt="Ice Planet" title="Frostbite" onclick="frostSelection()">
-    </a>
-    
-    <a href="forest.html" id="jungle" class="planet">
-        <img src="images/Legoshia.png" alt="Jungle Planet" title="Legoshia" onclick="legoshSelection()">
-    </a>
-    
-    <a href="desert.html" id="desert" class="planet">
-        <img src="images/DuneTerra.png" alt="Desert Planet" title="Duneterra" onclick="duneSelection()">
-    </a>
-    
+    <div id="jungle-orbit">
+      <img
+        src="images/Legoshia.png"
+        alt="Jungle Planet"
+        title="Legoshia"
+        onclick="legoshSelection()"
+        id="jungle"
+        class="planet"
+      />
+    </div>
+    <div id="desert-orbit">
+      <img
+        src="images/DuneTerra.png"
+        alt="Desert Planet"
+        title="Duneterra"
+        onclick="duneSelection()"
+        id="desert"
+        class="planet"
+      />
+    </div>
+
     <!-- Menu button -->
     <button type="button" id="open" class="button" onclick="openMenu()">
-        MENU
+      MENU
     </button>
 
     <!-- Planet Selection Menu-->
-     <div id="selection"></div>
-    
+    <div id="selection"></div>
+
     <!-- Menu overlay -->
     <div id="menu">
-        <button type="button" class="button" onclick="document.getElementById('menu').style.visibility = 'hidden'; document.getElementById('open').style.visibility = 'visible'">
-            CLOSE
-        </button>
-        <div class="menu-main">
-            <h1>COMPLETION TRACKER</h1>
-            <p id="hephestus-completion">Hephestus: Incomplete</p>
-            <p id="frostbite-completion">Frostbite: Incomplete</p>
-            <p id="legoshia-completion">Legoshia: Incomplete</p>
-            <p id="duneterra-completion">Duneterra: Incomplete</p>
-            <button><a href="title.html">BACK TO TITLE</a></button>
-        </div>
+      <button
+        type="button"
+        class="button"
+        onclick="
+          document.getElementById('menu').style.visibility = 'hidden';
+          document.getElementById('open').style.visibility = 'visible';
+        "
+      >
+        CLOSE
+      </button>
+      <div class="menu-main">
+        <h1>COMPLETION TRACKER</h1>
+        <p id="hephestus-completion">Hephestus: Incomplete</p>
+        <p id="frostbite-completion">Frostbite: Incomplete</p>
+        <p id="legoshia-completion">Legoshia: Incomplete</p>
+        <p id="duneterra-completion">Duneterra: Incomplete</p>
+        <button><a href="index.html">BACK TO TITLE</a></button>
+      </div>
     </div>
-    
-    <div class="textbox" id="sun-textbox" onclick="getElementById('sun-textbox').style.visibility='hidden'"></div>
-    
 
-     <script src="main.js"></script>
+    <div
+      class="textbox"
+      id="sun-textbox"
+      onclick="getElementById('sun-textbox').style.visibility = 'hidden'"
+    ></div>
     <script>
-        // Spaceship follower script
-        const ship = document.getElementById('spaceship');
-        let shipX = window.innerWidth / 2;
-        let shipY = window.innerHeight / 2;
+      // Spaceship follower script
+      const ship = document.getElementById("spaceship");
+      let shipX = window.innerWidth / 2;
+      let shipY = window.innerHeight / 2;
 
-        function moveShip(e) {
-            const dx = e.clientX - shipX;
-            const dy = e.clientY - shipY;
-            const angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-            
-            shipX += dx * 0.3;  // 0.1 = speed (lower = slower)
-            shipY += dy * 0.3;
-            
-            ship.style.left = shipX + 'px';
-            ship.style.top = shipY + 'px';
-            ship.style.transform = 'translate(-50%, -50%) rotate(' + angle + 'deg)';
+      function moveShip(e) {
+        const dx = e.clientX - shipX;
+        const dy = e.clientY - shipY;
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+
+        shipX += dx * 0.3; // 0.1 = speed (lower = slower)
+        shipY += dy * 0.3;
+
+        ship.style.left = shipX + "px";
+        ship.style.top = shipY + "px";
+        ship.style.transform = "translate(-50%, -50%) rotate(" + angle + "deg)";
+      }
+
+      setInterval(moveShip, 16);
+      function openMenu() {
+        document.getElementById("menu").style.visibility = "visible";
+        document.getElementById("open").style.visibility = "hidden";
+
+        if (localStorage.getItem("hephestus-completion")) {
+          document.getElementById("hephestus-completion").textContent =
+            "Hephestus: COMPLETED";
         }
+        if (localStorage.getItem("legoshia-completion")) {
+          document.getElementById("legoshia-completion").textContent =
+            "Legoshia: COMPLETED";
+        }
+        if (localStorage.getItem("frostbite-completion")) {
+          document.getElementById("frostbite-completion").textContent =
+            "Frostbite: COMPLETED";
+        }
+        if (localStorage.getItem("duneterra-completion")) {
+          document.getElementById("duneterra-completion").textContent =
+            "Duneterra: COMPLETED";
+        }
+      }
 
-        setInterval(moveShip, 16);
+      //Sun Textbox
+      function sunTextbox() {
+        let sunText = document.getElementById("sun-textbox");
+        sunText.style.visibility = "visible";
+        sunNum = Math.floor(Math.random() * 5) + 1;
+        if (sunNum === parseInt(1)) {
+          sunText.innerHTML =
+            "<img src='images/Rob-default.png' alt='Robert'>ROBERT: Yeah, that's a star alright.";
+        } else if (sunNum === parseInt(2)) {
+          sunText.innerHTML =
+            "<img src='images/bob-regular.png' alt='Bobert'>BOBERT: It's a white dwarf, it's small, but dense and REALLY hot.";
+        } else if (sunNum === parseInt(3)) {
+          sunText.innerHTML =
+            "<img src='images/Rob-default.png' alt='Robert'>ROBERT: No, no, you can't fight a star, trust me I tried, took a while and it went nowhere.";
+        } else if (sunNum === parseInt(4)) {
+          sunText.innerHTML =
+            "<img src='images/bob-regular.png' alt='Bobert'>BOBERT: Your curiosity about a random star that has no actual impact on anything is fairly interesting.";
+        } else if (sunNum === parseInt(5)) {
+          sunText.innerHTML =
+            "<img src='images/Rob-default.png' alt='Robert'>ROBERT: It has a name... what you think I remember it?";
+        }
+      }
+
+      //Planet Selection
+      let selection = document.getElementById("selection");
+      function hephSelection() {
+        selection.style.visibility = "visible";
+        html = `
+    <h1 id="selection-portion">Hephestus</h1>
+    <img src="images/Hephestus-bg.png" alt="Hephestus Planetside" id="planet-picture">
+    <div id="selection-portion">
+        <h2> Planet Information </h2>
+        <p>"Hephaestus" the lava planet is used as an energy producer for this solar system. It is a very industrialized planet being covered in factories utilizing the volcanoes as sources of energy for their factories. </p>
+    </div>
+    <div id="selection-portion">
+        <h2> Career: Plumber </h2>
+        <p>This planet will explore the plumber career, focusing on piping specifically. More information about plumbing can be found after completion of the minigame.</p>
+    </div>
+    <a href="lava.html" id="enter">Enter Atmosphere</a>
+    <button id="return" onclick="hideSelection()">Return to map</button>
+    `;
+        selection.innerHTML = html;
+      }
+      function legoshSelection() {
+        selection.style.visibility = "visible";
+        html = `
+    <h1 id="selection-portion">Legoshia</h1>
+    <img src="images/legoshia-background.png" alt="Legoshia Planetside" id="planet-picture">
+    <div id="selection-portion">
+        <h2> Planet Information </h2>
+        <p>"Legoshia" is a planet covered in greenery. From trees, bushes, flowers, anything you can think of. This also makes it a prime target for agricultural research, even to this day there are still new plants being found.</p>
+    </div>
+    <div id="selection-portion">
+        <h2> Career: Agricultural Scientist </h2>
+        <p>This planet will focus on the career of an Agricultural scientist. You will be sent to find new and rare samples for research.</p>
+    </div>
+    <a href="forest.html" id="enter">Enter Atmosphere</a>
+    <button id="return" onclick="hideSelection()">Return to map</button>
+    `;
+        selection.innerHTML = html;
+      }
+      function hideSelection() {
+        selection.style.visibility = "hidden";
+      }
+      function duneSelection() {
+        selection.style.visibility = "visible";
+        html = `
+    <h1 id="selection-portion">Duneterra</h1>
+    <img src="images/Duneterra-background.png" alt="Duneterra Planetside" id="planet-picture">
+    <div id="selection-portion">
+        <h2> Planet Information </h2>
+        <p>"Duneterra" is a desert planet. This planet only has one source of clean water that is guarded by a wall made of metal produced in Hephaestus. This wall is breaking apart and it is our job to fix it. </p>
+    </div>
+    <div id="selection-portion">
+        <h2> Career: Welding </h2>
+        <p> This planet will focus on the career path of a Welder. You will be sent to repair a wall for the people of Duneterra.</p>
+    </div>
+    <a href="desert.html" id="enter">Enter Atmosphere</a>
+    <button id="return" onclick="hideSelection()">Return to map</button>
+    `;
+        selection.innerHTML = html;
+      }
+      function frostSelection() {
+        selection.style.visibility = "visible";
+        html = `
+    <h1 id="selection-portion">Frostbite</h1>
+    <img src="images/frostbite-background.png" alt="Frostbite Planetside" id="planet-picture">
+    <div id="selection-portion">
+        <h2> Planet Information </h2>
+        <p>"Frostbite" is the coldest planet in this solar system, dropping all the way to -400 degrees fahrenheit. Many have considered this planet to be a wasteland, but one of the shareholders of the company would like to renovate this planet! </p>
+    </div>
+    <div id="selection-portion">
+        <h2> Career: Construction </h2>
+        <p>This planet will focus on construciton, focusing on the making of houses. More about construction working after the completion of this mini-game.</p>
+    </div>
+    <a href="ice.html" id="enter">Enter Atmosphere</a>
+    <button id="return" onclick="hideSelection()">Return to map</button>
+    `;
+        selection.innerHTML = html;
+      }
     </script>
-   
-</body>
-
+  </body>
 </html>

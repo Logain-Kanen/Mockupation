@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mockupation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-    body{
-            background-image: url('images/background-stars.png');
-        }
-    .intro-textbox{
+      body {
+        background-image: url("images/Space-Background.png");
+        background-size: cover;
+      }
+      .intro-textbox {
         visibility: hidden;
         height: 40%;
         background-color: rgb(185, 185, 185);
@@ -21,30 +22,158 @@
         position: absolute;
         right: 20%;
         top: 30%;
-    }
-    .intro-textbox img{
+      }
+      .intro-textbox img {
         float: left;
         margin-right: 20px;
         width: 100px;
-    }
-    a{
+      }
+      a {
         color: black;
-    }
+      }
     </style>
-</head>
-<body>
-    <div class="intro-textbox" id="text1" onclick="document.getElementById('text1').style.visibility= 'hidden'; document.getElementById('text2').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT: Why did we have to get stuck with the rookie again? <br> I mean do they even know what they are getting into?</div>
-    <div class="intro-textbox" id="text2" onclick="document.getElementById('text2').style.visibility= 'hidden'; document.getElementById('text3').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT: I'm sure they have some sort of experience. <br> Otherwise, why else would the company send them with just the two of us?</div>
-    <div class="intro-textbox" id="text3" onclick="document.getElementById('text3').style.visibility= 'hidden'; document.getElementById('text4').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT: You make a pretty good point.</div>
-    <div class="intro-textbox" id="text4" onclick="document.getElementById('text4').style.visibility= 'hidden'; document.getElementById('text5').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT: OF COURSE I DO! <br> Do you even remember how many jobs we've been on together?</div>
-    <div class="intro-textbox" id="text5" onclick="document.getElementById('text5').style.visibility= 'hidden'; document.getElementById('text6').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT: Yup. <br> 495 total jobs together.</div>
-    <div class="intro-textbox" id="text6" onclick="document.getElementById('text6').style.visibility= 'hidden'; document.getElementById('text7').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT: And how many of those were successful?</div>
-    <div class="intro-textbox" id="text7" onclick="document.getElementById('text7').style.visibility= 'hidden'; document.getElementById('text8').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT: Uhm... <br> All of them?</div>
-    <div class="intro-textbox" id="text8" onclick="document.getElementById('text8').style.visibility= 'hidden'; document.getElementById('text9').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT: What? No... <br>We're good but we ain't THAT good.</div>
-    <div class="intro-textbox" id="text9" onclick="document.getElementById('text9').style.visibility= 'hidden'; document.getElementById('text10').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">Out of those 495 jobs we were on together, a good 390 of those we passed with flying colors</div>
-    <div class="intro-textbox" id="text10" onclick="document.getElementById('text10').style.visibility= 'hidden'; document.getElementById('text11').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">And that's because we were together and the company knows it.</div>
-    <div class="intro-textbox" id="text11" onclick="document.getElementById('text11').style.visibility= 'hidden'; document.getElementById('text12').style.visibility='visible';"><img src="images/Rob-default.png" alt="Robert">ROBERT: Speaking of the rookie. <br> We should probably tell them we're here</div>
-    <a href="index.html"><div class="intro-textbox" id="text12" onclick="document.getElementById('text12').style.visibility= 'hidden'; document.getElementById('text12').style.visibility='visible';"><img src="images/bob-regular.png" alt="Bobert">BOBERT: No need. <br> I already called them up to the cockpit. </div> </a>
-    <script>onload=document.getElementById('text1').style.visibility= 'visible'</script>
-</body>
+  </head>
+  <body>
+    <div
+      class="intro-textbox"
+      id="text1"
+      onclick="
+        document.getElementById('text1').style.visibility = 'hidden';
+        document.getElementById('text2').style.visibility = 'visible';
+      "
+    >
+      <img src="images/Rob-default.png" alt="Robert" />ROBERT: Why did we have
+      to get stuck with the rookie again? <br />
+      I mean do they even know what they are getting into?
+    </div>
+    <div
+      class="intro-textbox"
+      id="text2"
+      onclick="
+        document.getElementById('text2').style.visibility = 'hidden';
+        document.getElementById('text3').style.visibility = 'visible';
+      "
+    >
+      <img src="images/bob-regular.png" alt="Bobert" />BOBERT: I'm sure they
+      have some sort of experience. <br />
+      Otherwise, why else would the company send them with just the two of us?
+    </div>
+    <div
+      class="intro-textbox"
+      id="text3"
+      onclick="
+        document.getElementById('text3').style.visibility = 'hidden';
+        document.getElementById('text4').style.visibility = 'visible';
+      "
+    >
+      <img src="images/Rob-default.png" alt="Robert" />ROBERT: You make a pretty
+      good point.
+    </div>
+    <div
+      class="intro-textbox"
+      id="text4"
+      onclick="
+        document.getElementById('text4').style.visibility = 'hidden';
+        document.getElementById('text5').style.visibility = 'visible';
+      "
+    >
+      <img src="images/bob-regular.png" alt="Bobert" />BOBERT: OF COURSE I DO!
+      <br />
+      Do you even remember how many jobs we've been on together?
+    </div>
+    <div
+      class="intro-textbox"
+      id="text5"
+      onclick="
+        document.getElementById('text5').style.visibility = 'hidden';
+        document.getElementById('text6').style.visibility = 'visible';
+      "
+    >
+      <img src="images/Rob-default.png" alt="Robert" />ROBERT: Yup. <br />
+      495 total jobs together.
+    </div>
+    <div
+      class="intro-textbox"
+      id="text6"
+      onclick="
+        document.getElementById('text6').style.visibility = 'hidden';
+        document.getElementById('text7').style.visibility = 'visible';
+      "
+    >
+      <img src="images/bob-regular.png" alt="Bobert" />BOBERT: And how many of
+      those were successful?
+    </div>
+    <div
+      class="intro-textbox"
+      id="text7"
+      onclick="
+        document.getElementById('text7').style.visibility = 'hidden';
+        document.getElementById('text8').style.visibility = 'visible';
+      "
+    >
+      <img src="images/Rob-default.png" alt="Robert" />ROBERT: Uhm... <br />
+      All of them?
+    </div>
+    <div
+      class="intro-textbox"
+      id="text8"
+      onclick="
+        document.getElementById('text8').style.visibility = 'hidden';
+        document.getElementById('text9').style.visibility = 'visible';
+      "
+    >
+      <img src="images/bob-regular.png" alt="Bobert" />BOBERT: What? No...
+      <br />We're good but we ain't THAT good.
+    </div>
+    <div
+      class="intro-textbox"
+      id="text9"
+      onclick="
+        document.getElementById('text9').style.visibility = 'hidden';
+        document.getElementById('text10').style.visibility = 'visible';
+      "
+    >
+      <img src="images/bob-regular.png" alt="Bobert" />Out of those 495 jobs we
+      were on together, a good 390 of those we passed with flying colors
+    </div>
+    <div
+      class="intro-textbox"
+      id="text10"
+      onclick="
+        document.getElementById('text10').style.visibility = 'hidden';
+        document.getElementById('text11').style.visibility = 'visible';
+      "
+    >
+      <img src="images/bob-regular.png" alt="Bobert" />And that's because we
+      were together and the company knows it.
+    </div>
+    <div
+      class="intro-textbox"
+      id="text11"
+      onclick="
+        document.getElementById('text11').style.visibility = 'hidden';
+        document.getElementById('text12').style.visibility = 'visible';
+      "
+    >
+      <img src="images/Rob-default.png" alt="Robert" />ROBERT: Speaking of the
+      rookie. <br />
+      We should probably tell them we're here
+    </div>
+    <a href="map.html"
+      ><div
+        class="intro-textbox"
+        id="text12"
+        onclick="
+          document.getElementById('text12').style.visibility = 'hidden';
+          document.getElementById('text12').style.visibility = 'visible';
+        "
+      >
+        <img src="images/bob-regular.png" alt="Bobert" />BOBERT: No need. <br />
+        I already called them up to the cockpit.
+      </div>
+    </a>
+    <script>
+      onload = document.getElementById("text1").style.visibility = "visible";
+    </script>
+  </body>
 </html>
